@@ -1,8 +1,10 @@
 package de.krystan.common.database;
 
 import org.apache.commons.lang.NotImplementedException;
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
+
+import de.krystan.common.database.DatabaseAPI;
 
 /**
  * This suite tests the basic behavior of the API in terms of the fundamental creation of the implementations
@@ -10,7 +12,7 @@ import org.junit.Assert;
  * @author Robert Duck
  * @since 09.01.2017
  */
-public class APICreateImplTests {
+public class APICreateImplTest {
 	/**
 	 * This will test how the API behaves when the argument for the database system is not provided.<br>
 	 * The expected behavior is an IllegalArgumentException because without the argument the API is not able to create 
@@ -52,7 +54,7 @@ public class APICreateImplTests {
 	 */
 	@Test
 	public void createImplTest4() {
-		System.setProperty("Database_System", "SQLITE");
+		System.setProperty("Database_System", "SQLITE3");
 		DatabaseAPI databaseAPI = new DatabaseAPI();
 		databaseAPI.createDatabaseImpl();
 		Assert.assertEquals("de.krystan.common.database.impl.SQLite3Impl", databaseAPI.getImplementationName());
